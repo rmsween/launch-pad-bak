@@ -1,0 +1,27 @@
+<div class="launch-table">
+    <div class="launch-row header flex-wrapper">
+        <div class="launch-cell launch-cell__divison">Division</div>
+        <div class="launch-cell launch-cell__project">Project</div>
+        <div class="launch-cell launch-cell__client-approval">Client Approval</div>
+        <div class="launch-cell launch-cell__launch-week">Launch Week</div>
+        <div class="launch-cell launch-cell__status">Status</div>
+        <div class="launch-cell launch-cell__days-left">Days Left</div>
+    </div>
+    <div class="launch-row flex-wrapper" *ngFor="let launch of launches"
+         [class.selected]="launch === selectedLaunch"
+         (click)="onSelect(launch)">
+        <div class="launch-cell launch-cell__divison">{{ launch.division }}</div>
+        <div class="launch-cell launch-cell__project">{{ launch.project }}</div>
+        <div class="launch-cell launch-cell__client-approval">{{ launch.clientApproval ? (launch.clientApproval|date) : 'Not Required'}}</div>
+        <!--<div class="launch-cell launch-cell__launch-week">{{ launch.launchDate | weekStart|date }} - {{ launch.launchDate | weekEnd|date }}</div>-->
+        <div class="launch-cell launch-cell__launch-week">{{ launch.launchDate | date }}</div>
+        <div class="launch-cell launch-cell__status">Status</div>
+        <div class="launch-cell launch-cell__days-left">{{ launch.launchDate | date }}</div>
+    </div>
+</div>
+<div *ngIf="selectedLaunch" class="modal-wrapper">
+    <div class="modal">
+        <my-launch-detail [launch]="selectedLaunch"></my-launch-detail>
+    </div>
+    <div class="modal-background" (click)="close()"></div>
+</div>

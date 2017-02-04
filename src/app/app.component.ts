@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Launch } from './launch';
 
 @Component({
   selector: 'app-root',

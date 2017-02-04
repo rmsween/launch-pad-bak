@@ -1,0 +1,36 @@
+<div class="modal-card">
+    <div class="modal-content">
+        <h2>{{launch.project}}</h2>
+        <div class="input-block">
+            <label>Division: </label>
+            <input type="text" [(ngModel)]="launch.division" placeholder="Division"/>
+        </div>
+        <div class="input-block">
+            <label>Project: </label>
+            <input type="text" [(ngModel)]="launch.project" placeholder="Project"/>
+        </div>
+        <div class="input-block">
+            <label>Client Approval Date: </label>
+            <material-datepicker
+                    [(date)]="launch.clientApproval"
+                    accentColor="#54b1fb"
+                    fontFamily="'Montserrat', 'Roboto', 'Helvetica', Arial, sans-serif"
+                    dateFormat="MM-DD-YYYY"
+                    ></material-datepicker>
+        </div>
+        <div class="input-block">
+            <label>Launch Date: </label>
+            <material-datepicker
+                    [(date)]="launch.launchDate"
+                    accentColor="#54b1fb"
+                    fontFamily="'Montserrat', 'Roboto', 'Helvetica', Arial, sans-serif"
+                    dateFormat="MM-DD-YYYY"
+                    ></material-datepicker>
+        </div>
+    </div>
+    <div class="modal-actions"><!--
+    --><div class="modal-button"><a href="#" (click)="close()">UPDATE</a></div><!--
+    --><div class="modal-button"><a href="#">DELETE</a></div><!--
+--></div>
+</div>
+
