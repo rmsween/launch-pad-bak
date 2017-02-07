@@ -11,21 +11,11 @@
         </div>
         <div class="input-block">
             <label>Client Approval Date: </label>
-            <material-datepicker
-                    [(date)]="launch.clientApproval"
-                    accentColor="#54b1fb"
-                    fontFamily="'Montserrat', 'Roboto', 'Helvetica', Arial, sans-serif"
-                    dateFormat="MM-DD-YYYY"
-                    ></material-datepicker>
+            <input type="text" [(ngModel)]="launch.clientApproval" placeholder="Project"/>
         </div>
         <div class="input-block">
             <label>Launch Date: </label>
-            <material-datepicker
-                    [(date)]="launch.launchDate"
-                    accentColor="#54b1fb"
-                    fontFamily="'Montserrat', 'Roboto', 'Helvetica', Arial, sans-serif"
-                    dateFormat="MM-DD-YYYY"
-                    ></material-datepicker>
+            <input type="text" [(ngModel)]="launch.launchDate" placeholder="Project"/>
         </div>
     </div>
     <div class="modal-actions"><!--
