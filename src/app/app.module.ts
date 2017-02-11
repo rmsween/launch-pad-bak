@@ -4,13 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
-// Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
-
 import { AppComponent } from './app.component';
 import { LaunchDetailComponent } from './launch-detail.component';
 import { LaunchesComponent } from './launches.component';
+import { LaunchNewComponent } from './launch-new.component';
+import { HttpService } from './http.service';
 import { LaunchService }         from './launch.service';
 import { DatepickerModule } from 'angular2-material-datepicker';
 
@@ -19,7 +17,6 @@ import { DatepickerModule } from 'angular2-material-datepicker';
     BrowserModule,
     HttpModule,
     FormsModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule,
     DatepickerModule,
   ],
@@ -27,8 +24,9 @@ import { DatepickerModule } from 'angular2-material-datepicker';
     AppComponent,
     LaunchDetailComponent,
     LaunchesComponent,
+    LaunchNewComponent
   ],
-  providers: [ LaunchService ],
+  providers: [ LaunchService, HttpService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

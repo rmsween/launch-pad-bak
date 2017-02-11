@@ -1,0 +1,17 @@
+<div class="input-block">
+    <label for="division">Division: </label>
+    <input type="text" id="division" #division />
+</div>
+<div class="input-block">
+    <label for="project">Project: </label>
+    <input type="text" id="project" #project />
+</div>
+<div class="input-block">
+    <label for="clientApproval">Client Approval Date: </label>
+    <input type="datetime" id="clientApproval" #clientApproval />
+</div>
+<div class="input-block">
+    <label for="launchDate">Launch Date: </label>
+    <input type="datetime" id="launchDate" #launchDate />
+</div>
+<button (click)="onSubmit(division.value, project.value, clientApproval.value, launchDate.value)">Submit</button>

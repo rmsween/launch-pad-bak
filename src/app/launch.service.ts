@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Launch } from './launch';
 @Injectable()
 export class LaunchService {
     private headers = new Headers({'Content-Type': 'application/json'});
-    private launchesUrl = 'api/launches';  // URL to web api
+    private launchesUrl = 'https://launch-pad-157621.firebaseio.com/launches.json';  // URL to web api
     constructor(private http: Http) { }
     getLaunches(): Promise<Launch[]> {
         return this.http.get(this.launchesUrl)

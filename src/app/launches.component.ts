@@ -1,17 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Launch } from './launch';
-import { LaunchService } from './launch.service';
+import { HttpService } from './http.service';
 @Component({
     selector: 'my-launches',
     templateUrl: './launches.component.html',
-    providers: [LaunchService]
+    providers: [HttpService]
 })
 export class LaunchesComponent implements OnInit {
     launches: Launch[];
     selectedLaunch: Launch;
-    constructor(private launchService: LaunchService) { }
+    constructor(private httpService: HttpService) { }
     getLaunches(): void {
-        this.launchService.getLaunches().then(launches => this.launches = launches);
+        this.httpService.getLaunchesFromServer()
+            .subscribe(
+                data => {
+                    const launches = [];
+                    for (let key in data) {
+                        launches.push(data[key]);
+                    }
+                    this.launches = launches;
+                }
+            )
     }
     ngOnInit(): void {
         this.getLaunches();
